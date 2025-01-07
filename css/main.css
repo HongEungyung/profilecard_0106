@@ -1,8 +1,12 @@
 @charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+ul,li{
+  list-style: none;
 }
 section {
   width: 340px;
@@ -11,6 +15,7 @@ section {
   margin: 50px auto;
   border-radius: 10px;
   /* 그림자는 항상 저장해놓고 자동으로 붙여넣기 해서 쓰느게 좋음 아님 피그마에서 만든거 들고 오든지 / 아니면 다른 사이트에서 예뻐보이는거 갖고 오든지 / 왜냐하면 내가 자연스럽고 예쁘게 만들기 어려워서 */
+  background-color: #fff;
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1);
 }
 /* nav.menu 둘 사이 안띄우면 같은 선상이란 뜻 */
@@ -32,6 +37,7 @@ section nav.menu a:first-child {
 section nav.menu a:last-child {
   float: right;
 }
+
 /* 프로필 영역 */
 article.profile {
   width: 100%;
@@ -40,12 +46,25 @@ article.profile {
   font-family: "arial";
   /* background-color: aqua; */
 }
-article.profile img {
+/* article.profile img {
   width: 200px;
   height: 200px;
-  /* 네모를 원으로 만들때 보더 레디우스 50% */
   border-radius: 50%;
+} */
+.profile-img{
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: auto;
   box-shadow: 5px 15px 30px rgba(173, 216, 230, 0.8);
+}
+.profile-img img{
+  width: 100%;
+  transition: all 0.5s;
+}
+.profile-img img:hover{
+  transform: scale(1.2);
 }
 article.profile h1 {
   font-weight: bold;
@@ -65,7 +84,7 @@ article.profile h2 {
 a.btn-view {
   display: block;
   width: 180px;
-  /* 높이 값을 줬는데 왜 안커지지? 하면 패딩값을 없애면 됨
+  /* 높이 값을 줬는데 왜 안 커지지? 하면 패딩값을 없애면 됨
   height: 32px;
   이걸로 높이값을 줬으면 line height로 가운데 정렬은 따로 해줘야 함 이때는 1이나 폰트크기와 같은 값 */
   line-height: 32px;
@@ -75,10 +94,123 @@ a.btn-view {
   color: #fff;
   text-decoration: none;
   background-color: aqua;
+  /* 선 그라데이션 linear-gradient 각도, 색, 색*/
   background: linear-gradient(45deg, #b227ca, #35e0f7);
-  box-shadow: 5px 10px 20px rgba(0, 255, 255, 0.493);
-
+  box-shadow: 5px 5px 20px rgba(0, 255, 255, 0.493);
 }
+/* 연락처 영역 */
+.contact{
+  margin: 25px 0;
+  /* background-color: #b227ca; */
+}
+.contact li{
+  width: 100%;
+  margin: auto;
+  padding: 10px 30px;
+  /* background-color: aqua; */
+}
+.contact li:first-child{
+  border-bottom: 1px solid #eee;
+}
+.contact li i{
+  width: 10%;
+  /* background-color: #5c559c; */
+  /* i에게 너비값 주고 싶어도 inline이라 너비값 안먹힐거임 그럼 디스플레이 바꾸기 */
+  /* 근데 지금 font awesome 에서 갖고 온 얘는 너비 먹힘. 그럼 아 그냥 먹히는구나 하고 넘어가기 */
+  margin-right: 15px;
+  /* 혹시나 내부(html)에 style 들어가있으면 그게 힘이 더 쎄기 때문에 여기 색은 안 먹힐 거임 내부 스타일 없애기 */
+  color: #555;
+  font-size: 15px;
+  text-align: center;
+  text-shadow: 2px 2px 2px #ddd;
+}
+.contact li span{
+  font-size: 11px;
+  font-family: "Orbitron", serif;
+  letter-spacing: 1px;
+}
+/* 멤버별 프로필 링크 만들기 */
+.others{
+  width: 100%;
+  /* background-color: aqua; */
+  text-align: center;
+}
+.others a{
+  display: inline-block;
+  /* ↑너비 값을 주기 위해서 */
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin: 0 10px;
+  opacity: 0.4;
+  background-color: #e8a9f3;
+  filter: saturate(0.7);
+}
+.others a.on{
+  /* a와 .on 사이 안 띄운거 유념하기 */
+  opacity: 1;
+  filter: saturate(1);
+}
+.others a:nth-of-type(1){
+  /* nth-of-type 인접 중에 타입이 비슷한 애들중에 (1) 첫번째 애라는 뜻 */
+  background-color: #35e0f7;
+  box-shadow: 5px 5px 10px rgba(74, 255, 255, 0.7);
+}
+.others a:nth-of-type(2){
+  background-color: #55f5cd;
+  box-shadow: 5px 5px 10px rgba(85, 245, 178, 0.7);
+}
+.others a:nth-of-type(3){
+  background-color: #ff80df;
+  box-shadow: 5px 5px 10px rgba(255, 128, 223, 0.7);
+}
+.others a:nth-of-type(4){
+  background-color: #a794fd;
+  box-shadow: 5px 5px 10px rgba(167, 148, 253, 0.7);
+}
+/* member1 */
+body.member1{
+  background-color: #ebfaff;
+}
+body.member1 .profile-img{
+  box-shadow: 5px 15px 30px rgba(173, 216, 230, 0.8);
+}
+body.member1 .btn-view{
+  background: linear-gradient(45deg, #4affff, #35e0f7);
+  box-shadow: 5px 10px 20px rgba(0, 255, 255, 0.493);
+}
+/* member2 */
+body.member2{
+  background-color: #edffeb;
+}
+body.member2 .profile-img{
+  box-shadow: 5px 15px 30px #bdccb783;
+}
+body.member2 .btn-view{
+  background: linear-gradient(45deg, #a0ff9d, #55f5b2);
+  box-shadow: 5px 10px 20px rgba(33, 350, 105, 0.3);
+}
+/* member3 */
+body.member3{
+  background-color: #fff3fd;
+}
+body.member3 .profile-img{
+  box-shadow: 5px 15px 30px rgba(252, 99, 214, 0.2);
+}
+body.member3 .btn-view{
+  background: linear-gradient(45deg, #ef74ff, #ff11c4);
+  box-shadow: 5px 10px 20px rgba(255, 17, 196, 0.357);
+}
+/* member4 */
+body.member3{
+  background-color: #f5f0ff;
+}
+body.member3 .profile-img{
+  box-shadow: 5px 15px 30px rgba(183, 82, 250, 0.2);
+}
+body.member3 .btn-view{
+  background: linear-gradient(45deg, #8e74ff, #a011ff);
+  box-shadow: 5px 10px 20px rgba(160, 17, 255, 0.4);
 
 /* 이미지에 영역을 따로 만들 때 */
 /* .profile-img{
