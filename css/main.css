@@ -75,7 +75,7 @@ article.profile h1 {
   /* ↓대문자로 바꾸는 명령 */
   text-transform: uppercase;
 }
-article.profile h2{
+article.profile h2 {
   font-size: 12px;
   font-weight: normal;
   color: #bbb;
@@ -211,7 +211,6 @@ body.member3 .profile-img{
 body.member3 .btn-view{
   background: linear-gradient(45deg, #8e74ff, #a011ff);
   box-shadow: 5px 10px 20px rgba(160, 17, 255, 0.4);
-}
 
 /* 이미지에 영역을 따로 만들 때 */
 /* .profile-img{
